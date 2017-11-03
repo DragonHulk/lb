@@ -1,0 +1,51 @@
+CREATE TABLE employee
+( employee_id INT IDENTITY(1,1) PRIMARY KEY,  
+  username VARCHAR(50) NOT NULL,
+  email VARCHAR(50),
+  password VARCHAR(50),
+  role VARCHAR(10)
+  );
+
+    CREATE TABLE employee_details(
+  details_id INT IDENTITY(1,1) PRIMARY KEY,
+  employee_id INT foreign key references employee(employee_id),
+  firstname VARCHAR(50),
+  middlename VARCHAR(50),
+  lastname VARCHAR(50),
+  address VARCHAR(50),
+  phonenumber BIGINT,
+  aadhaarnumber VARCHAR(50),
+  pannumber VARCHAR(50),
+  gender VARCHAR(50),
+  fathername VARCHAR(50),
+  mothername VARCHAR(50),
+  bloodgroup VARCHAR(10),
+  department VARCHAR(50),
+  collegename VARCHAR(50),
+  cgpa VARCHAR(50),
+  
+  );
+  
+
+insert into employee( username, email, password, role) 
+  values ('lokeshbabu' , 'lokezhbabu@gmail.com' , 'lokesh123' , 'hr');
+
+
+
+  insert into employee_details (employee_id,firstname,middlename,lastname,address,phonenumber,aadhaarnumber,pannumber,gender,fathername,mothername,bloodgroup,department,collegename,cgpa)
+  values ('1','lokesh','babu','','49/113, Ms koil street,Royapuram,chennai-13','9176000484','8987ASD987ASD','PLA2842156','male','mani','renuka','A1-','ECE','RMKCET','8.0');
+
+select * from employee;
+select * from employee_details;
+
+create table leave_details(
+  leave_id INT IDENTITY(1,1) PRIMARY KEY,
+  employee_id INT foreign key references employee(employee_id),
+  fromDate VARCHAR(50),
+  toDate VARCHAR(50),
+  No_of_days INT,
+  reason VARCHAR(50),
+  status INT
+	)
+
+select * from leave_details
